@@ -67,4 +67,8 @@ public class Member {
 		return email;
 	}
 	
+	public String printOne() {
+		return this.userId +", "+ this.userPwd + ", " + this.userName + ", " + this.age + ", " + this.gender + ", " + this.email;
+	}
+	
 }
