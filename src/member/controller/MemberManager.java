@@ -42,13 +42,28 @@ public class MemberManager {
 	}
 
 	public void searchId() {
-		// TODO Auto-generated method stub
+		System.out.println("검색할 아이디를 입력하세요 : ");
+		String id = sc.next();
+		for(int i = 0; i < ctn; i++) {
+			if(m[i].getUserId() == id) {
+				System.out.println(m[i].printOne());
+			} else {
+				System.out.println("검색한 회원 정보가 존재하지 않습니다."); break;
+			}
+		}
 		
 	}
 
 	public void searchName() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("검색할 이름을 입력하세요 : ");
+		String name = sc.next();
+		for(int i = 0; i < ctn; i++) {
+			if(m[i].getUserName() == name) {
+				System.out.println(m[i].printOne());
+			} else {
+				System.out.println("검색한 회원 정보가 존재하지 않습니다."); break;
+			}
+		}
 	}
 
 	public void searchEmail() {
