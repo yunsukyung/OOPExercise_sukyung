@@ -37,7 +37,7 @@ public class MemberManager {
 	}
 
 	public void printAllMember() {
-		// TODO Auto-generated method stub
+		
 
 	}
 
@@ -129,14 +129,35 @@ public class MemberManager {
 	}
 
 	public void deleteOne() {
-		// TODO Auto-generated method stub
+		System.out.println("탈퇴할 회원의 아이디를 입력하세요 : ");
+		String userId = sc.next();
+		for(int i = 0; i < ctn; i++) {
+			if(m[i].getUserId() == userId) {
+				m[i + 1] = m[i];
+				ctn--;
+			} else {
+				System.out.println("삭제할 회원 정보가 존재하지 않습니다."); break;
+			}
+		}
 
 	}
 
 	public void deleteAll() {
-		// TODO Auto-generated method stub
+		for(int i = 0; i < ctn; i++) {
+			m[i].setUserId(null);
+			m[i].setUserPwd(null);
+			m[i].setUserName(null);
+			m[i].setAge(0);
+			m[i].setGender('\u0000');
+			m[i].setEmail(null);
+			
+			ctn = 0;
+		}
 
 	}
+	
+	
+	
 
 
 }
