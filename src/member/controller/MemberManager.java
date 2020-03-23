@@ -29,6 +29,12 @@ public class MemberManager {
 			m[i] = new Member(id, pwd, name, age, gender, email);
 
 			ctn++;
+			
+			System.out.println("회원정보를 더 입력하시겠습니까?");
+			char t = sc.next().charAt(0);
+			if(t == 'N' || t == 'n') {
+				System.out.println("입력을 종료합니다."); break;
+			}
 		}
 		System.out.println("입력이 완료되었습니다. 메인 메뉴로 돌아갑니다."); return;
 
@@ -37,7 +43,17 @@ public class MemberManager {
 	}
 
 	public void printAllMember() {
-		
+		for(int i = 0; i < ctn; i++) {
+			System.out.println(m[i].getUserId());
+			System.out.println(m[i].getUserPwd());
+			System.out.println(m[i].getUserName());
+			System.out.println(m[i].getAge());
+			System.out.println(m[i].getGender());
+			System.out.println(m[i].getEmail());
+			
+			System.out.println();
+			
+		}
 
 	}
 
@@ -45,8 +61,9 @@ public class MemberManager {
 		System.out.println("검색할 아이디를 입력하세요 : ");
 		String id = sc.next();
 		for(int i = 0; i < ctn; i++) {
-			if(m[i].getUserId() == id) {
-				System.out.println(m[i].printOne());
+			if(m[i].getUserId().equals(id)) {
+				
+				printOne(m[i]);
 			} else {
 				System.out.println("검색한 회원 정보가 존재하지 않습니다."); break;
 			}
@@ -58,8 +75,9 @@ public class MemberManager {
 		System.out.println("검색할 이름을 입력하세요 : ");
 		String name = sc.next();
 		for(int i = 0; i < ctn; i++) {
-			if(m[i].getUserName() == name) {
-				System.out.println(m[i].printOne());
+			if(m[i].getUserId().equals(name)) {
+				
+				printOne(m[i]);
 			} else {
 				System.out.println("검색한 회원 정보가 존재하지 않습니다."); break;
 			}
@@ -70,8 +88,9 @@ public class MemberManager {
 		System.out.println("검색할 이메일을 입력하세요 : ");
 		String email = sc.next();
 		for(int i = 0; i < ctn; i++) {
-			if(m[i].getEmail() == email) {
-				System.out.println(m[i].printOne());
+			if(m[i].getUserId().equals(email)) {
+				
+				printOne(m[i]);
 			} else {
 				System.out.println("검색한 회원 정보가 존재하지 않습니다."); break;
 			}
@@ -83,7 +102,7 @@ public class MemberManager {
 		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
 		for(int i = 0; i < ctn; i++) {
-			if(m[i].getUserId() == userId) {
+			if(m[i].getUserId().equals(userId)) {
 				System.out.println("변경할 비밀번호를 입력하세요 : ");
 				String newPwd = sc.next();
 				m[i].setUserPwd(newPwd);
@@ -100,7 +119,7 @@ public class MemberManager {
 		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
 		for(int i = 0; i < ctn; i++) {
-			if(m[i].getUserId() == userId) {
+			if(m[i].getUserId().equals(userId)) {
 				System.out.println("변경할 이름을 입력하세요 : ");
 				String newName = sc.next();
 				m[i].setUserName(newName);;
@@ -116,7 +135,7 @@ public class MemberManager {
 		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
 		for(int i = 0; i < ctn; i++) {
-			if(m[i].getUserId() == userId) {
+			if(m[i].getUserId().equals(userId)) {
 				System.out.println("변경할 이메일 입력하세요 : ");
 				String newEmail = sc.next();
 				m[i].setEmail(newEmail);;
@@ -132,8 +151,8 @@ public class MemberManager {
 		System.out.println("탈퇴할 회원의 아이디를 입력하세요 : ");
 		String userId = sc.next();
 		for(int i = 0; i < ctn; i++) {
-			if(m[i].getUserId() == userId) {
-				m[i + 1] = m[i];
+			if(m[i].getUserId().equals(userId)) {
+				m[i] = m[i + 1];
 				ctn--;
 			} else {
 				System.out.println("삭제할 회원 정보가 존재하지 않습니다."); break;
@@ -154,6 +173,15 @@ public class MemberManager {
 			ctn = 0;
 		}
 
+	}
+	
+	public void printOne(Member m) {
+		System.out.println(m.getUserId());
+		System.out.println(m.getUserPwd());
+		System.out.println(m.getUserName());
+		System.out.println(m.getAge());
+		System.out.println(m.getGender());
+		System.out.println(m.getEmail());
 	}
 	
 	

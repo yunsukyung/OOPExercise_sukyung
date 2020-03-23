@@ -44,6 +44,7 @@ public class Member {
 	}
 	
 	public String getUserId() {
+		
 		return userId;
 	}
 	
@@ -66,9 +67,8 @@ public class Member {
 	public String getEmail() {
 		return email;
 	}
+
 	
-	public String printOne() {
-		return this.userId +", "+ this.userPwd + ", " + this.userName + ", " + this.age + ", " + this.gender + ", " + this.email;
-	}
+	
 	
 }
